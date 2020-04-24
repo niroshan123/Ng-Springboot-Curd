@@ -34,6 +34,7 @@ public class UserController {
     public User updateUser(@RequestBody User user) {
         return userRepository.save(user);
     }
+    //all the routes
 
     @PostMapping("/user")
     public User createUser(@RequestBody User user) {
