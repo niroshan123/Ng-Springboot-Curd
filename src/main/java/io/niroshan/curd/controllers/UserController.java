@@ -7,40 +7,38 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
-@RestController
-@RequestMapping("/api")
+@RestController//This makes this class as a controller to spring boot
+@RequestMapping("/api")//this class maps with url /api
+@CrossOrigin(origins="http://localhost:4200", allowedHeaders="*")//This allows to connect to the client side requests
 public class UserController {
-
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository userRepository;//This controller requests implementations from UserRepository
 
-    @GetMapping("/users")
-    public List<User> getUsers(){
+    @GetMapping("/users")//In order to get the users
+    public List<User> getUsers() {
         return userRepository.findAll();
+
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/user/{id}")
     public Optional<User> getUser(@PathVariable Long id) {
         return userRepository.findById(id);
     }
-    @DeleteMapping("/users/{id}")
+
+    @DeleteMapping("/user/{id}")
     public boolean deleteUser(@PathVariable Long id) {
         userRepository.deleteById(id);
         return true;
     }
 
-    @PostMapping("/users")
-    public User createUser(User user){
+    @PutMapping("/user")
+    public User updateUser(@RequestBody User user) {
         return userRepository.save(user);
-
     }
 
-    @PutMapping("/users")
-    public User updateUser(User user){
+    @PostMapping("/user")
+    public User createUser(@RequestBody User user) {
         return userRepository.save(user);
-
     }
-
 
 }

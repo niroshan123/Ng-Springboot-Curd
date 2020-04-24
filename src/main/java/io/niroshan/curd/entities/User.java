@@ -5,15 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+//make the user model first
+@Entity//annotation implies that this user is an entity in the database
 public class User {
 
-    @Id
-    @GeneratedValue
+    @Id//Long id is the primary key for the table
+    @GeneratedValue//this says that id is auto incremented
     private Long id;
     private String fname;
     private String lname;
 
+    //create the constructor with and without parameters
     public User(String fname, String lname) {
         this.fname = fname;
         this.lname = lname;
@@ -22,7 +24,7 @@ public class User {
     public User() {
     }
 
-    @Override
+    @Override//in order to debug
     public String toString() {
         return "User{" +
                 "id=" + id +
@@ -30,7 +32,7 @@ public class User {
                 ", lname='" + lname + '\'' +
                 '}';
     }
-
+//getters and setters
     public Long getId() {
         return id;
     }
