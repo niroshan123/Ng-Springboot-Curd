@@ -17,7 +17,6 @@ public class UserController {
     @GetMapping("/users")//In order to get the users
     public List<User> getUsers() {
         return userRepository.findAll();
-
     }
 
     @GetMapping("/user/{id}")
