@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import{UserService}  from '../../shared-service/user.service';
 import{User}  from '../../user';
 import{Router}  from '@angular/router';
-
 @Component({
   selector: 'app-listuser',
   templateUrl: './listuser.component.html',
@@ -28,7 +27,7 @@ export class ListuserComponent implements OnInit {
     });
   }
 
-   updateUser(user){  
+   updateUser(user){
      this._userService.setter(user);
      this._router.navigate(['/op']);
 
@@ -38,7 +37,7 @@ export class ListuserComponent implements OnInit {
    let user = new User();
     this._userService.setter(user);
      this._router.navigate(['/op']);
-   
+
    }
 
 }

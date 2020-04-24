@@ -11,7 +11,7 @@ import{UserService}  from '../../shared-service/user.service';
 export class UserFormComponent implements OnInit {
   private user:User;
 
-  constructor(private _userService:UserService,private _rotuer:Router) { }
+  constructor(private _userService:UserService,private _router:Router) { }
 
   ngOnInit() {
     this.user=this._userService.getter();
@@ -21,14 +21,14 @@ export class UserFormComponent implements OnInit {
     if(this.user.id==undefined){
        this._userService.createUser(this.user).subscribe((user)=>{
          console.log(user);
-         this._rotuer.navigate(['/']);
+         this._router.navigate(['/']);
        },(error)=>{
          console.log(error);
        });
     }else{
        this._userService.updateUser(this.user).subscribe((user)=>{
          console.log(user);
-         this._rotuer.navigate(['/']);
+         this._router.navigate(['/']);
        },(error)=>{
          console.log(error);
        });
