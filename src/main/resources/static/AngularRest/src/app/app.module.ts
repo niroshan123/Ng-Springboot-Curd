@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{RouterModule, Routes}   from '@angular/router';
+import{RouterModule, Routes}   from '@angular/router';//routes1
 import{HttpModule}   from '@angular/http';
 import{FormsModule}   from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -8,6 +8,7 @@ import { ListuserComponent } from './components/listuser/listuser.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import{UserService}   from './shared-service/user.service';
 
+//routes2
 const appRoutes:Routes=[
   {path:'', component:ListuserComponent},
     {path:'op', component:UserFormComponent}
@@ -23,7 +24,7 @@ const appRoutes:Routes=[
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes)////routes3
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
